@@ -167,9 +167,9 @@ Every 10 seconds, the active \`VideoWriter\` binary stream handle is cleanly clo
 
 **STREAM\_NAME \= "FHD\_Security\_Camera\_Stream"**
 
-**Historically, to stream video to AWS Kinesis Video Streams from a local device, you would need to use either the AWS Kinesis Video Streams Producer SDK (C++ or Java) or integrate a dedicated GStreamer plugin loop (kvssink).**
+**Historically, to stream video to AWS Kinesis Video Streams from a local IOT device, you would need to use either the AWS Kinesis Video Streams Producer SDK (C++ or Java, no python) or integrate a dedicated GStreamer plugin loop (kvssink).**
 
-**Instead of dealing with that real-time streaming pipeline, this code utilizes a simpler file-upload approach using regular Amazon S3 via boto3.client('s3'). It handles the video files as individual static object chunks rather than a continuous live RTSP/WebRTC Kinesis video stream.**
+**Instead of dealing with that real-time streaming pipeline, this code utilizes a simpler file-upload approach using regular Amazon S3 via boto3.client('s3'). It handles the video files as individual static object chunks rather than a continuous live RTSP/WebRTC Kinesis video stream. KVS does not store the video directly. Note that we will still need to define a Lambda function to store video chunks files to S3.** 
 
         
 ======================================================================
