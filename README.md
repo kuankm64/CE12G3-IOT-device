@@ -6,6 +6,10 @@ venv\Scripts\Activate.ps1
 
 pip install awsiotsdk  boto3  opencv-python
 
+# Adjust the AWS S3 Video Parameters in the python code
+
+# Ensure that claim.cert.pem and claim.private.key are in the same diectory as device_runner.py. These 2 files are created when we run the terraform code to build the cloud infra. You will also need the AmazonRootCA1.pem
+
 **Run**
 
 python device_runner.py
