@@ -176,7 +176,7 @@ def telemetry_thread_worker():
                 payload = {
                     "sensor_id": i,
                     "timestamp": int(time.time()),
-                    "temperature": round(random.uniform(22.0, 30.0), 2),
+                    "temp": round(random.uniform(20.0, 50.0), 2),
                     "status": "online"
                 }
                 print(f"[SEND] {topic} -> data: {payload}")
@@ -185,7 +185,8 @@ def telemetry_thread_worker():
                     payload=json.dumps(payload), 
                     qos=mqtt.QoS.AT_LEAST_ONCE
                 )
-            
+               
+                
             # Subdivided sleep intervals allow fast exit checks on shutdown
             for _ in range(30):
                 if not system_running:
